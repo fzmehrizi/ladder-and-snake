@@ -1,5 +1,3 @@
-package com.johnAbbott.LaderAndSnake;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,10 +5,10 @@ import java.util.Objects;
 
 public class LadderAndSnake {
     private final ArrayList<Integer> board;
-    private ArrayList<String> playersOrdered;
-    private ArrayList<Integer> finalPosition;
     private final ArrayList<Integer> LadderSnakeOrigin;
     private final ArrayList<Integer> LadderSnakeDestination;
+    private ArrayList<String> playersOrdered;
+    private ArrayList<Integer> finalPosition;
 
     private int positionAfterMove;
     private int diceValue;
@@ -34,7 +32,7 @@ public class LadderAndSnake {
         Collections.addAll(LadderSnakeDestination, 38, 14, 31, 6, 42, 84, 44, 30, 67, 60, 91, 19, 100, 24, 68, 76, 78);
         for (int i = 0; i < 100; i++) {
             for (int j = 0; j < LadderSnakeOrigin.size(); j++) {
-                if ((i + 1) == LadderSnakeOrigin.get(j)) {
+                if (LadderSnakeOrigin.get(j) == (i + 1)) {
                     board.add(LadderSnakeDestination.get(j));
                 }
             }
@@ -85,7 +83,7 @@ public class LadderAndSnake {
         }
     }
 
-    // checking if anyone reached the sqaure 100 and won the game
+    // checking if anyone reached the square 100 and won the game
     public void checkGameOver() {
         for (int i = 0; i < finalPosition.size(); i++) {
             if (finalPosition.get(i) == 100) {
