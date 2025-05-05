@@ -9,6 +9,9 @@ public class LadderAndSnake {
     private ArrayList<Integer> board;
     private ArrayList<String> playersOrdered;
     private ArrayList<Integer> finalPosition;
+    private ArrayList<Integer> LadderSnakeOrigin;
+    private ArrayList<Integer> LadderSnakeDetination;
+
     private int positionAfterMove;
     private int diceValue;
     private int playerIndex;
@@ -16,6 +19,8 @@ public class LadderAndSnake {
 
     public LadderAndSnake(List<String> playerNames) {
         board = new ArrayList<>();
+        LadderSnakeOrigin = new ArrayList<>();
+        LadderSnakeDetination = new ArrayList<>();
         playersOrdered = new ArrayList<>(playerNames);
         finalPosition = new ArrayList<>();
         for (int i = 0; i < playerNames.size(); i++) {
@@ -25,13 +30,19 @@ public class LadderAndSnake {
     }
 
     private void initializeBoard() {
-        Collections.addAll(board, 38, 2, 3, 14, 5, 6, 7, 8, 31, 10,
-                11, 12, 13, 14, 15, 6, 17, 18, 19, 20, 42, 22, 23, 24, 25,
-                26, 27, 84, 29, 30, 31, 32, 33, 34, 35, 44, 37, 38, 39, 40,
-                41, 42, 43, 44, 45, 46, 47, 30, 49, 50, 67, 52, 53, 54, 55,
-                56, 57, 58, 59, 60, 61, 62, 63, 60, 65, 66, 67, 68, 69, 70,
-                91, 72, 73, 74, 75, 76, 77, 78, 19, 100, 81, 82, 83, 84, 85,
-                24, 87, 88, 89, 90, 91, 92, 68, 94, 95, 96, 76, 78, 99, 100);
+        Collections.addAll(LadderSnakeOrigin, 1, 4, 9, 16, 21, 28, 36, 48, 51, 64, 71, 79, 80, 86, 93, 97, 98);
+        Collections.addAll(LadderSnakeDetination, 38, 14, 31, 6, 42, 84, 44, 30, 67, 60, 91, 19, 100, 24, 68, 76, 78);
+        for (int i = 0; i < 100; i++) {
+            for (int j = 0; j < LadderSnakeOrigin.size(); j++) {
+                if ((i + 1) == LadderSnakeOrigin.get(j)) {
+                    board.add(LadderSnakeDetination.get(j));
+                }
+            }
+            if (board.size() < (i + 1)) {
+                board.add(i + 1);
+            }
+        }
+        System.out.println(board);
     }
 
     // rolling the dice and printing the dice value
