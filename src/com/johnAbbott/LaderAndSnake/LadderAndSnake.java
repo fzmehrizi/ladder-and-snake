@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Objects;
 
 public class LadderAndSnake {
-    private ArrayList<Integer> board;
+    private final ArrayList<Integer> board;
     private ArrayList<String> playersOrdered;
     private ArrayList<Integer> finalPosition;
-    private ArrayList<Integer> LadderSnakeOrigin;
-    private ArrayList<Integer> LadderSnakeDetination;
+    private final ArrayList<Integer> LadderSnakeOrigin;
+    private final ArrayList<Integer> LadderSnakeDestination;
 
     private int positionAfterMove;
     private int diceValue;
@@ -20,7 +20,7 @@ public class LadderAndSnake {
     public LadderAndSnake(List<String> playerNames) {
         board = new ArrayList<>();
         LadderSnakeOrigin = new ArrayList<>();
-        LadderSnakeDetination = new ArrayList<>();
+        LadderSnakeDestination = new ArrayList<>();
         playersOrdered = new ArrayList<>(playerNames);
         finalPosition = new ArrayList<>();
         for (int i = 0; i < playerNames.size(); i++) {
@@ -31,18 +31,17 @@ public class LadderAndSnake {
 
     private void initializeBoard() {
         Collections.addAll(LadderSnakeOrigin, 1, 4, 9, 16, 21, 28, 36, 48, 51, 64, 71, 79, 80, 86, 93, 97, 98);
-        Collections.addAll(LadderSnakeDetination, 38, 14, 31, 6, 42, 84, 44, 30, 67, 60, 91, 19, 100, 24, 68, 76, 78);
+        Collections.addAll(LadderSnakeDestination, 38, 14, 31, 6, 42, 84, 44, 30, 67, 60, 91, 19, 100, 24, 68, 76, 78);
         for (int i = 0; i < 100; i++) {
             for (int j = 0; j < LadderSnakeOrigin.size(); j++) {
                 if ((i + 1) == LadderSnakeOrigin.get(j)) {
-                    board.add(LadderSnakeDetination.get(j));
+                    board.add(LadderSnakeDestination.get(j));
                 }
             }
             if (board.size() < (i + 1)) {
                 board.add(i + 1);
             }
         }
-        System.out.println(board);
     }
 
     // rolling the dice and printing the dice value
