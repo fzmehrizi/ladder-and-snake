@@ -117,7 +117,10 @@ public class LadderAndSnake {
     }
 
     public void resetGameState() {
-        finalPosition = new ArrayList<>(Collections.nCopies(playersOrdered.size(), 0));
+        finalPosition = new ArrayList<>();
+        for (int i = 0; i < playersOrdered.size(); i++) {
+            finalPosition.add(0);
+        }
         positionAfterMove = 0;
         gameOver = false;
     }
