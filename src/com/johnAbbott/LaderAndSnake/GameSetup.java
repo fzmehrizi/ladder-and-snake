@@ -90,7 +90,8 @@ public class GameSetup {
         System.out.println("\n Welcome to Ladder and Snake Game!");
         System.out.println(" Developed by Fatemeh & Sarah\n");
         System.out.println(" Game is played by " + playersOrdered.size() + " players");
-        System.out.println(" Let’s begin the game!\n");
+        System.out.println(" " +
+                "Let’s begin the game!\n");
     }
 }
 
