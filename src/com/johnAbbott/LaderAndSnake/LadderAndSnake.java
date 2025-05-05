@@ -17,7 +17,10 @@ public class LadderAndSnake {
     public LadderAndSnake(List<String> playerNames) {
         board = new ArrayList<>();
         playersOrdered = new ArrayList<>(playerNames);
-        finalPosition = new ArrayList<>(Collections.nCopies(playerNames.size(), 0));
+        finalPosition = new ArrayList<>();
+        for (int i = 0; i < playerNames.size(); i++) {
+            finalPosition.add(0);
+        }
         initializeBoard();
     }
 
