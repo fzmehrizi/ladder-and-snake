@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Objects;
+
 public class PlayLadderAndSnake {
     LadderAndSnake ladderAndSnake = new LadderAndSnake();
 
